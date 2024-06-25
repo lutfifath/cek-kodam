@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cek Kodam Anda</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url("https://www.noice.id/wp-content/uploads/2022/08/Mistik-Islam-Kejawen.jpeg");
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+      }
+      h1 {
+        color: black;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px 0;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        width: calc(100% - 24px);
+        max-width: 400px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: green;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: green;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333333;
+      }
+      .loading {
+        font-size: 16px;
+        color: #777777;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cek Kodam Anda</h1>
+      <div id="inputSection">
+        <input type="text" id="nameInput" placeholder="Masukkan Nama Anda..." />
+        <button onclick="cekKodam()">Cek Sekarang</button>
+      </div>
+      <div class="loading" id="loading"></div>
+      <div class="result" id="result"></div>
+    </div>
+    <script>
+      function cekKodam() {
+        const name = document.getElementById("nameInput").value.trim();
+        const inputSection = document.getElementById("inputSection");
+        const loadingDiv = document.getElementById("loading");
+        const resultDiv = document.getElementById("result");
+
+        if (name === "") {
+          resultDiv.innerHTML = "Silakan masukkan nama Anda!";
+          return;
+        }
+
+        inputSection.style.display = "none"; // Sembunyikan input dan tombol cek
+
+        loadingDiv.innerHTML =
+          "Tunggu sebentar, mbah sedang menulusuri kodam mu nduk...";
+
+        // Simulasi proses loading dengan setTimeout
+        setTimeout(() => {
+          const kodams = [
+            {
+              description:
+                "Kodam kamu adalah <strong>ember bocor</strong> karena kamu tidak handal dalam menjaga rahasia!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>knalpot racing</strong> karena suaramu nyaring sekali!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>blender</strong> karena suka bikin jus gosip!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>AC rusak</strong> karena suka bikin orang panas dingin!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>wifi lelet</strong> karena suka nge-lag dalam percakapan!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>kucing mewing</strong> karena selalu butuh perhatian dan suka minta makan di tengah malam!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>tong sampah</strong> karena kamu selalu bisa menerima keluh kesah teman-temanmu!, tapi keluh kesahmu gk ada yang nampung:(",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>bak mandi</strong> karena kamu selalu bikin orang merasa rileks dan segar!, tapi kamunya jarang mandi",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>kura-kura ngesot</strong> karena kamu selalu santai dan tidak pernah terburu-buru!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>pecel lele</strong> karena kamu selalu siap tempur, apalagi di malam hari!jhahah",
+            },
+
+            {
+              description:
+                "Kodam kamu adalah <strong>pacul</strong> karena kamu selalu bekerja keras dan tidak pernah menyerah!",
+            },
+
+            {
+              description:
+                "Kodam kamu adalah <strong>Seragam SMA</strong> karena kamu punya kisah cinta yang belum selesai di sma:)",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>toga wisuda</strong> karena kamu sudah di tunggu banyak perusahaan",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>makalah</strong> karena kamu selalu mengabaikannya, dia juga butuh perhatian tau:)",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>gantungan kunci</strong> karna kamu punya hubungan yang belum jelas dan belum terselesaikan",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>kain kusut</strong> karena meski tampak berantakan, kamu tetap bisa menyelesaikan masalah:)",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>Google</strong> karena kamu selalu punya jawaban untuk semua pertanyaan terutama kalo ada tugas",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>topeng monyet</strong> karena kamu selalu bisa menghibur orang dengan aksi-aksi lucumu,walaupun kadang di sepelekan,sabar orang baik:)",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>kingkong</strong> karena kamu selalu tampil kuat dan gagah di segala situasi!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>buaya darat</strong> karena kamu selalu pandai merayu meski jarang berhasil!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>minyak jelantah</strong> karena kamu selalu punya cara untuk digunakan kembali di saat krisis!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>kulkas 1000 pintu</strong> karena kamu selalu bisa menyimpan rahasia dengan baik,tapi sifatmu bikin gedeg pasangan cuyy, dikira keren apa!",
+            },
+            {
+              description:
+                "Kodam kamu adalah <strong>ketek moha</strong> karena kamu selalu ingin mengapai apa yang kamu ingin kan",
+            },
+          ];
+
+          const randomIndex = Math.floor(Math.random() * kodams.length);
+          const kodam = kodams[randomIndex];
+
+          loadingDiv.innerHTML = ""; // Hapus pesan loading setelah selesai
+          resultDiv.innerHTML = `<strong>${name}</strong>, ${kodam.description}`;
+        }, 1500); // Menggunakan setTimeout untuk simulasi proses loading
+      }
+    </script>
+  </body>
+</html>
